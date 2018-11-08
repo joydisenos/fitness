@@ -7,8 +7,21 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding  class="card-background-page">
   
-  
-  <!--<button ion-button secondary menuToggle>Toggle Menu</button>-->
+  <h4>Bienvenido, {{(perfilData | async)?.nombre}}</h4>
+  <div class="center">
+    <p>Actividades Por realizar</p>
+  </div>
+
+  <ion-card *ngFor="let item of items | async">
+    <img src="https://static.saludenvidiable.com/wp-content/uploads/2016/07/instrucciones-ligar-en-el-gimnasio-772x528.jpg" class="fondo"/>
+    <div class="card-title">{{item.nombre}}</div>
+    <div class="card-subtitle">
+      <button ion-button color="light" (click)="abrirEjercicios(item)">
+        Comenzar
+      </button>
+    </div>
+  </ion-card>
+
 </ion-content>

@@ -1,23 +1,16 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Actividades</ion-title>
   </ion-navbar>
 </ion-header>
-<!-- (click)="itemTapped($event, item)" -->
+
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="abrirActividad()">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
+    <button ion-item *ngFor="let item of items | async" (click)="abrirActividad(item)">
+      {{item.nombre}}
     </button>
   </ion-list>
-  <div *ngIf="selectedItem" padding>
-    Ha seleccionado <b>{{selectedItem.title}}</b>
-  </div>
 </ion-content>

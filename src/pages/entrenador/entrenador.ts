@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ChatPage } from '../chat/chat';
 
 /**
  * Generated class for the EntrenadorPage page.
@@ -18,8 +19,9 @@ export class EntrenadorPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EntrenadorPage');
+  abrirChat()
+  {
+    this.navCtrl.push(ChatPage);
   }
 
 }

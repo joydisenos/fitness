@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
+import { Item } from '../../models/item';
+import { Ejercicio } from '../../models/ejercicio';
 
 /**
  * Generated class for the ActividadPage page.
@@ -15,11 +17,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ActividadPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  item = {} as Item;
+  ejercicios: Array<Ejercicio>;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ActividadPage');
+  @ViewChild(Slides) slides: Slides;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams) {
+      this.item = navParams.get('item');
+      this.ejercicios = this.item.ejercicios;
+      console.log(this.item.ejercicios);
   }
 
 }

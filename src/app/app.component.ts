@@ -12,6 +12,9 @@ import { EvolucionPage } from '../pages/evolucion/evolucion';
 import { LogrosPage } from '../pages/logros/logros';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { SettingsPage } from '../pages/settings/settings';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Perfil } from '../models/perfil';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,25 +22,39 @@ import { SettingsPage } from '../pages/settings/settings';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+  perfil : AngularFireObject<Perfil>;
+
   rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(
+    public afDatabase: AngularFireDatabase,
+    public afAuth: AngularFireAuth,
+    public platform: Platform, 
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Inicio', component: HomePage },
       { title: 'Actividades', component: ListPage },
-      { title: 'Login', component: LoginPage },
       { title: 'Dieta', component: DietaPage },
       { title: 'Entrenador', component: EntrenadorPage },
-      { title: 'Evolucion', component: EvolucionPage },
       { title: 'Logros', component: LogrosPage },
-      { title: 'Perfil', component: PerfilPage },
-      { title: 'Settings', component: SettingsPage }
+      { title: 'Perfil', component: PerfilPage }
     ];
+
+    this.afAuth.authState.subscribe(data => {
+      if(data && data.email && data.uid)
+      {
+        this.perfil = this.afDatabase.object('perfil/'+data.uid);
+      }
+      else{
+        this.nav.setRoot(LoginPage);
+      }
+    });
 
   }
 
@@ -54,5 +71,11 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  logOut()
+  {
+    this.afAuth.auth.signOut()
+    .then(() => this.nav.setRoot(LoginPage));
   }
 }

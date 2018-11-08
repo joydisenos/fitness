@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { User } from '../../models/user';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { HomePage } from '../home/home';
+import { HomePage } from '../home/home'; 
 
 /**
  * Generated class for the LoginPage page.
@@ -23,19 +23,24 @@ export class LoginPage {
   constructor(
     private afAuth: AngularFireAuth,
     public navCtrl: NavController, 
-    public navParams: NavParams) 
+    public navParams: NavParams,
+    public alertCtrl: AlertController) 
   {}
 
   async login(user:User){
-    try{
-      const result = this.afAuth.auth.signInWithEmailAndPassword(user.email , user.password);
-      if(result){
+    
+      const result = this.afAuth.auth.signInWithEmailAndPassword(user.email , user.password)
+      .then(auth => {
         this.navCtrl.setRoot(HomePage);
-      }
+      })
+      .catch(err => {
+        const alert = this.alertCtrl.create({
+          title: 'Error de Autenticación!',
+          buttons: ['OK']
+        });
+        alert.present();
+      })
     }
-    catch (e){
-      console.error(e);
-    }
-  }
+  
 
 }

@@ -5,10 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+  <ion-navbar color="primary">
     <ion-title>Login</ion-title>
   </ion-navbar>
 </ion-header>
@@ -17,17 +14,18 @@
 <ion-content padding>
 
 
+  <h5 class="titulo">Fitness App</h5>
+  <ion-list>
+    <ion-item>
+          <ion-label floating>Usuario</ion-label>
+          <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
 
-  <ion-item>
-        <ion-label fixed>Usuario</ion-label>
-        <ion-input type="text" [(ngModel)]="user.email"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label fixed>Contraseña</ion-label>
-    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-  </ion-item>
-  
-  <button ion-button (click)="login(user)">Ingresar</button>
-
+    <ion-item>
+      <ion-label floating>Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    
+    <button ion-button full (click)="login(user)" class="ingresar">Ingresar</button>
+  </ion-list>
 </ion-content>

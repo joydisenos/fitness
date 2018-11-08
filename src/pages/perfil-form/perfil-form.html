@@ -1,0 +1,59 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>PerfilForm</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label floating>
+      Nombre
+    </ion-label>
+    <ion-input [(ngModel)]="perfil.nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>
+      Apellido
+    </ion-label>
+    <ion-input [(ngModel)]="perfil.apellido"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>
+      Edad
+    </ion-label>
+    <ion-input [(ngModel)]="perfil.edad" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>
+      Peso
+    </ion-label>
+    <ion-input [(ngModel)]="perfil.peso" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>
+      Altura
+    </ion-label>
+    <ion-input [(ngModel)]="perfil.altura" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Sexo</ion-label>
+    <ion-select [(ngModel)]="perfil.sexo">
+      <ion-option value="Masculino">Masculino</ion-option>
+      <ion-option value="Femenino">Femenino</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-input [(ngModel)]="perfil.tipo" type="hidden" value="usuario"></ion-input>
+
+    <button ion-button full (click)="crearPerfil(perfil)">Actualizar</button>
+
+</ion-content>

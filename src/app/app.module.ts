@@ -15,11 +15,14 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { SettingsPage } from '../pages/settings/settings';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthService } from '../providers/auth-service/auth-service';
 import { FIREBASE_CONFIG } from './app.firebase.config';
+import { PerfilFormPage } from '../pages/perfil-form/perfil-form';
+import { ChatPage } from '../pages/chat/chat';
 
 @NgModule({
   declarations: [
@@ -33,13 +36,16 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
     EvolucionPage,
     LogrosPage,
     PerfilPage,
-    SettingsPage
+    SettingsPage,
+    PerfilFormPage,
+    ChatPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -53,7 +59,9 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
     EvolucionPage,
     LogrosPage,
     PerfilPage,
-    SettingsPage
+    SettingsPage,
+    PerfilFormPage,
+    ChatPage
   ],
   providers: [
     StatusBar,
