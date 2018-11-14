@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angular/fire/database';
 import { LoginPage } from '../login/login';
 import { Perfil } from '../../models/perfil';
 import { Observable } from 'rxjs';
 import { ActividadPage } from '../actividad/actividad';
+import { Item } from '../../models/item';
+import { map } from 'rxjs/operators';
+import { AdminInicioPage } from '../admin-inicio/admin-inicio';
+import { DetallesPage } from '../detalles/detalles';
 
 @Component({
   selector: 'page-home',
@@ -16,7 +20,8 @@ export class HomePage {
   user:string = '';
   perfil : AngularFireObject<Perfil>;
   perfilData : Observable<Perfil>;
-  items: Observable<any[]>;
+  itemsRef: AngularFireList<any>;
+  items: Observable<Item[]>;
 
 
  
@@ -29,7 +34,20 @@ export class HomePage {
         {
           this.perfil = this.afDatabase.object('perfil/'+data.uid);
           this.perfilData = this.perfil.valueChanges();
-          this.items = this.afDatabase.list('actividades/' + data.uid).valueChanges();
+          this.perfilData.subscribe(user => {
+            if(user.tipo == 'admin')
+            {
+              this.navCtrl.setRoot(AdminInicioPage);
+            }
+          } );
+          this.itemsRef = this.afDatabase.list('actividades/' + data.uid);
+          this.items = this.itemsRef.snapshotChanges().pipe(
+            map(items => 
+              items.map(item => ({ 
+                key: item.key, 
+                ...item.payload.val() }))
+            )
+          );
         }
         else{
           this.navCtrl.setRoot(LoginPage);
@@ -38,7 +56,7 @@ export class HomePage {
   }
 
   abrirEjercicios(item) {
-    this.navCtrl.push(ActividadPage , {item: item});
+    this.navCtrl.push(DetallesPage , {item: item});
   }
 
 }

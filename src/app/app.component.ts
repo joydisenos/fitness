@@ -7,14 +7,13 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { DietaPage } from '../pages/dieta/dieta';
-import { EntrenadorPage } from '../pages/entrenador/entrenador';
-import { EvolucionPage } from '../pages/evolucion/evolucion';
+import { ChatPage } from '../pages/chat/chat';
 import { LogrosPage } from '../pages/logros/logros';
-import { PerfilPage } from '../pages/perfil/perfil';
-import { SettingsPage } from '../pages/settings/settings';
+import { PerfilFormPage } from '../pages/perfil-form/perfil-form';
 import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Perfil } from '../models/perfil';
+import { ParametrosPage } from '../pages/parametros/parametros';
 
 @Component({
   templateUrl: 'app.html'
@@ -38,12 +37,13 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Inicio', component: HomePage },
-      { title: 'Actividades', component: ListPage },
-      { title: 'Dieta', component: DietaPage },
-      { title: 'Entrenador', component: EntrenadorPage },
+      { title: 'Entrenamiento', component: HomePage },
+      { title: 'Dieta Programada', component: DietaPage },
+      { title: 'Mi Entrenador', component: ChatPage },
       { title: 'Logros', component: LogrosPage },
-      { title: 'Perfil', component: PerfilPage }
+      { title: 'Parametros', component: ParametrosPage },      
+      { title: 'Actividades', component: ListPage },
+      { title: 'Perfil', component: PerfilFormPage }
     ];
 
     this.afAuth.authState.subscribe(data => {

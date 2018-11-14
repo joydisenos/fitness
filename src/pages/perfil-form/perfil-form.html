@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>PerfilForm</ion-title>
+    <ion-title>Actualizar Perfil {{ perfilData.nombre }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,51 +9,85 @@
 
 <ion-content padding>
 
+  <ion-slides pager>
+    <ion-slide>
+      <img src="assets/imgs/icon-user-default.png" class="perfil">
+  
   <ion-item>
     <ion-label floating>
       Nombre
     </ion-label>
-    <ion-input [(ngModel)]="perfil.nombre"></ion-input>
+    <ion-input [(ngModel)]="perfilData.nombre"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating>
-      Apellido
+      Email
     </ion-label>
-    <ion-input [(ngModel)]="perfil.apellido"></ion-input>
+    <ion-input [(ngModel)]="perfilData.email"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating>
-      Edad
+      Fecha de nacimiento
     </ion-label>
-    <ion-input [(ngModel)]="perfil.edad" type="number"></ion-input>
+    <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD-MM-YYYY" [(ngModel)]="perfilData.nacimiento"></ion-datetime>
   </ion-item>
-
-  <ion-item>
-    <ion-label floating>
-      Peso
-    </ion-label>
-    <ion-input [(ngModel)]="perfil.peso" type="number"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label floating>
-      Altura
-    </ion-label>
-    <ion-input [(ngModel)]="perfil.altura" type="number"></ion-input>
-  </ion-item>
+  
 
   <ion-item>
     <ion-label>Sexo</ion-label>
-    <ion-select [(ngModel)]="perfil.sexo">
+    <ion-select [(ngModel)]="perfilData.sexo">
       <ion-option value="Masculino">Masculino</ion-option>
       <ion-option value="Femenino">Femenino</ion-option>
     </ion-select>
   </ion-item>
 
-  <ion-input [(ngModel)]="perfil.tipo" type="hidden" value="usuario"></ion-input>
+  <ion-input [(ngModel)]="perfilData.tipo" type="hidden" value="usuario"></ion-input>
 
-    <button ion-button full (click)="crearPerfil(perfil)">Actualizar</button>
+   <ion-fab bottom right>
+    <button ion-fab (click)="crearPerfil(perfilData)">
+      <ion-icon name="archive"></ion-icon>
+    </button>
+   </ion-fab>
+    </ion-slide>
 
+    <ion-slide>
+      <ion-icon name="arrow-up"></ion-icon>
+      <h1 class="titulos">80 <small>Kg</small></h1>
+      <ion-icon name="arrow-down"></ion-icon><br> <br>
+      <ion-icon name="arrow-up"></ion-icon>
+      <h1 class="titulos">180 <small>cm</small></h1>
+      <ion-icon name="arrow-down"></ion-icon><br> <br>
+      <ion-icon name="arrow-up"></ion-icon>
+      <h1 class="titulos">15 <small>%</small></h1>
+      <ion-icon name="arrow-down"></ion-icon>
+    </ion-slide>
+  
+
+  <ion-slide>
+    <img src="assets/imgs/shield.png" alt="" class="perfil">
+    <br>
+    <ion-item>
+  <ion-label>Objetivo del Entrenamiento</ion-label>
+  <ion-select>
+    <ion-option value="f">Opcion 1</ion-option>
+    <ion-option value="m">Opcion 2</ion-option>
+  </ion-select>
+</ion-item>
+
+<br>
+<br>
+
+ <img src="assets/imgs/heart.png" alt="" class="perfil">
+    <br>
+    <ion-item>
+  <ion-label>Objetivo Dieta</ion-label>
+  <ion-select>
+    <ion-option value="f">Opcion 1</ion-option>
+    <ion-option value="m">Opcion 2</ion-option>
+  </ion-select>
+</ion-item>
+  </ion-slide>
+</ion-slides>
 </ion-content>

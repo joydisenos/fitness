@@ -7,7 +7,7 @@ import { Perfil } from '../../models/perfil';
 import { LoginPage } from '../login/login';
 import { Observable } from 'rxjs';
 
-/**
+/** 
  * Generated class for the PerfilPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
@@ -47,7 +47,7 @@ export class PerfilPage {
     
   }
 
-  actualizarPerfil()
+  actualizarPerfil(perfilData)
   {
     this.navCtrl.push(PerfilFormPage);
   }

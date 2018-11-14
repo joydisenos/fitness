@@ -3,7 +3,7 @@
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
--->
+
 <ion-header>
   <ion-navbar color="primary">
     <button ion-button menuToggle>
@@ -12,31 +12,143 @@
     <ion-title>{{item.nombre}}</ion-title>
   </ion-navbar>
 </ion-header>
+-->
 
-
-<ion-content padding>
+<ion-content>
 
   <ion-slides>
+    <ion-slide>
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title>
+              CALENTAMIENTO
+            </ion-card-title>
+            
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <div class="timer">
+                    <span item-start>
+                      <span class="titulos">4</span>m <span class="titulos">12</span>s
+                    </span>
+                   <span item-end>
+                     <ion-icon name="play"></ion-icon>
+                   <ion-icon name="square"></ion-icon>
+                   </span>
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                   <span (click)="slideNext()">salta</span>
+                </ion-col>
+              </ion-row>
+            </ion-grid>  
+            
+          </ion-card-content>
+        </ion-card>
+
+      </ion-slide>
+
       <ion-slide *ngFor="let ejercicio of ejercicios">
           <ion-card>
-              <img src="https://t2.uc.ltmcdn.com/images/6/3/6/img_cuanto_ejercicio_hacer_a_la_semana_26636_orig.jpg"/>
+              
               <ion-card-content>
                 <ion-card-title>
-                  {{ejercicio.nombre}}
+                  HAZ EL EJERCICIO
                 </ion-card-title>
-                <p>
-                 Repeticiones: {{ejercicio.repeticiones}}
-                </p>
-                <p>
-                  Tiempo: {{ejercicio.tiempo}}
-                </p>
-                <p>
-                Descanso: {{ejercicio.descanso}}
-                </p>
+                <img height="100px" src="https://t2.uc.ltmcdn.com/images/6/3/6/img_cuanto_ejercicio_hacer_a_la_semana_26636_orig.jpg"/>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <h3 class="titulos">
+                        S1
+                      </h3>
+                    </ion-col>
+                    <ion-col>
+                      <h3 class="titulos">
+                        {{ejercicio.peso}} Kg
+                      </h3>
+                    </ion-col>
+                    <ion-col> 
+                      <h3 class="titulos">
+                        X{{ejercicio.repeticiones}}
+                      </h3>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
               </ion-card-content>
             </ion-card>
+
+           
+              <button ion-button bottom center (click)="slideNext()">
+                Siguiente ejercicio
+              </button>
+          
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title>
+              ¡ENTRENAMIENTO COMPLETADO!
+            </ion-card-title>
+            <img class="copa" src="/assets/imgs/copa.png"/>
+            <h3 class="titulos">
+             1<small>h</small> 5<small>m</small> 30<small>s</small>
+            </h3>
+            <h3 class="titulos">
+              2.450 Kg
+            </h3>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-icon name="star" style="color:yellow"></ion-icon>
+                </ion-col>
+                <ion-col>
+                  <ion-icon name="star" style="color:yellow"></ion-icon>
+                </ion-col>
+                <ion-col>
+                  <ion-icon name="star" style="color:yellow"></ion-icon>
+                </ion-col>
+                <ion-col>
+                  <ion-icon name="star" style="color:yellow"></ion-icon>
+                </ion-col>
+                <ion-col>
+                  <ion-icon name="star"></ion-icon>
+                </ion-col>
+              </ion-row>
+            </ion-grid>  
+            <button ion-button (click)="completarActividad()">
+              Finalizar
+            </button>
+          </ion-card-content>
+        </ion-card>
       </ion-slide>
       
     </ion-slides>
 
+
+
 </ion-content>
+
+<ion-footer>
+  <ion-card>
+    
+    <ion-card-content>
+      <ion-card-title>
+      {{item.nombre}}
+    </ion-card-title>
+      <ion-row>
+        <ion-col>
+          <ion-icon name="star" style="color:yellow"></ion-icon>
+          <ion-icon name="star" style="color:yellow"></ion-icon>
+          <ion-icon name="star" style="color:yellow"></ion-icon>
+        </ion-col>
+        <ion-col>
+          x10 x2 80Kg
+        </ion-col>
+        </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-footer>

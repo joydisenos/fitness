@@ -1,3 +1,18 @@
 page-actividad {
+	ion-card-content{
+		.copa{
+			max-height: 150px;
+			margin: 0 auto;
+			display: block;
+		}
 
+		.titulos{
+			font-size: 25px;
+			font-weight: bold;
+		}
+	}
+
+	.timer{
+		border: thin solid #000000;
+	}
 }

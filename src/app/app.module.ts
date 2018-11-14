@@ -23,6 +23,9 @@ import { AuthService } from '../providers/auth-service/auth-service';
 import { FIREBASE_CONFIG } from './app.firebase.config';
 import { PerfilFormPage } from '../pages/perfil-form/perfil-form';
 import { ChatPage } from '../pages/chat/chat';
+import { AdminInicioPage } from '../pages/admin-inicio/admin-inicio';
+import { ParametrosPage } from '../pages/parametros/parametros';
+import { DetallesPage } from '../pages/detalles/detalles';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { ChatPage } from '../pages/chat/chat';
     PerfilPage,
     SettingsPage,
     PerfilFormPage,
-    ChatPage
+    ChatPage,
+    AdminInicioPage,
+    ParametrosPage,
+    DetallesPage
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,10 @@ import { ChatPage } from '../pages/chat/chat';
     PerfilPage,
     SettingsPage,
     PerfilFormPage,
-    ChatPage
+    ChatPage,
+    AdminInicioPage,
+    ParametrosPage,
+    DetallesPage
   ],
   providers: [
     StatusBar,

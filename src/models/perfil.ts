@@ -6,4 +6,5 @@ export interface Perfil {
     peso: number;
     tipo: string;
     altura: number;
+    nacimiento: Date;
 }
