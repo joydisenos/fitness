@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DietaDetallePage } from '../dieta-detalle/dieta-detalle';
 
 /**
  * Generated class for the DietaPage page.
@@ -20,6 +21,11 @@ export class DietaPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DietaPage');
+  }
+
+  abrirDetalle(i:any)
+  {
+    this.navCtrl.push(DietaDetallePage, {i : i});
   }
 
 }

@@ -14,3 +14,30 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.dark{
+    background-color: black;
+}
+.inicio-sesion{
+    background-color: transparent;
+    color:#fff;
+}
+.ingresar{
+    background-color: rgba(255,255,255,0.2);
+}
+.centrar{
+    text-align: center;
+}
+.menu-side{
+    background-color: black;
+    color:#fff;
+}
+.full-modal {
+    .modal-wrapper {
+      position: absolute;
+      top: 0 !important;
+      left: 0 !important;
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    } 
+  }

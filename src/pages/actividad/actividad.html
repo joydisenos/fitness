@@ -16,7 +16,7 @@
 
 <ion-content>
 
-  <ion-slides>
+  <ion-slides (ionSlideDidChange)="slideChanged()">
     <ion-slide>
         <ion-card>
           <ion-card-content>
@@ -57,7 +57,7 @@
                 <ion-card-title>
                   HAZ EL EJERCICIO
                 </ion-card-title>
-                <img height="100px" src="https://t2.uc.ltmcdn.com/images/6/3/6/img_cuanto_ejercicio_hacer_a_la_semana_26636_orig.jpg"/>
+                <img src="https://t2.uc.ltmcdn.com/images/6/3/6/img_cuanto_ejercicio_hacer_a_la_semana_26636_orig.jpg"/>
                 <ion-grid>
                   <ion-row>
                     <ion-col>
@@ -81,9 +81,7 @@
             </ion-card>
 
            
-              <button ion-button bottom center (click)="slideNext()">
-                Siguiente ejercicio
-              </button>
+              
           
       </ion-slide>
 
@@ -133,8 +131,10 @@
 </ion-content>
 
 <ion-footer>
-  <ion-card>
-    
+    <button ion-button block (click)="slideNext()" id="btn-next" style="display:none">
+        Siguiente ejercicio
+      </button>
+  <ion-card id="e-card">
     <ion-card-content>
       <ion-card-title>
       {{item.nombre}}

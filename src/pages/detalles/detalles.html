@@ -28,7 +28,7 @@
   </ion-card>
 
   <ion-list>
-    <ion-item *ngFor="let ejercicio of ejercicios">
+    <ion-item *ngFor="let ejercicio of ejercicios" (click)="detalles()">
       {{ejercicio.nombre}}
 
         <ion-icon name="star" item-end></ion-icon>

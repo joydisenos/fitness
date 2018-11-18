@@ -1,17 +1,13 @@
 <ion-menu [content]="content">
-  <ion-header color="primary">
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
 
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+  <ion-content class="menu-side" padding>
+    <ion-list class="centrar" no-lines>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" class="centrar inicio-sesion">
         {{p.title}}
       </button>
       
-      <button menuClose ion-item (click)="logOut()">Cerrar Sesión</button>
+      <button menuClose ion-item (click)="logOut()" class="centrar inicio-sesion">Cerrar Sesión</button>
     </ion-list>
   </ion-content>
 

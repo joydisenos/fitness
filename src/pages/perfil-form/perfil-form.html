@@ -9,7 +9,7 @@
 
 <ion-content padding>
 
-  <ion-slides pager>
+  <ion-slides>
     <ion-slide>
       <img src="assets/imgs/icon-user-default.png" class="perfil">
   
@@ -35,21 +35,18 @@
   </ion-item>
   
 
-  <ion-item>
-    <ion-label>Sexo</ion-label>
-    <ion-select [(ngModel)]="perfilData.sexo">
-      <ion-option value="Masculino">Masculino</ion-option>
-      <ion-option value="Femenino">Femenino</ion-option>
-    </ion-select>
-  </ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-icon name="female"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <ion-icon name="male"></ion-icon>
+    </ion-col>
+  </ion-row>
 
   <ion-input [(ngModel)]="perfilData.tipo" type="hidden" value="usuario"></ion-input>
 
-   <ion-fab bottom right>
-    <button ion-fab (click)="crearPerfil(perfilData)">
-      <ion-icon name="archive"></ion-icon>
-    </button>
-   </ion-fab>
+   
     </ion-slide>
 
     <ion-slide>
@@ -90,4 +87,10 @@
 </ion-item>
   </ion-slide>
 </ion-slides>
+
+<ion-fab bottom right>
+    <button ion-fab (click)="crearPerfil(perfilData)">
+      <ion-icon name="archive"></ion-icon>
+    </button>
+   </ion-fab>
 </ion-content>

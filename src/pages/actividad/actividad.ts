@@ -54,6 +54,21 @@ export class ActividadPage {
       this.itemKey = this.item.key;
       console.log(this.itemKey);
       this.start();
+
+
+  }
+
+  slideChanged(){
+    let currentIndex = this.slides;
+
+    if(currentIndex.isEnd())
+      {
+        document.getElementById('btn-next').style.display = 'none';
+        document.getElementById('e-card').style.display = 'block';
+      }else{
+        document.getElementById('btn-next').style.display = 'block';
+        document.getElementById('e-card').style.display = 'none';
+      }
   }
 
   slideNext()

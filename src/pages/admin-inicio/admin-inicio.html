@@ -6,16 +6,489 @@
 -->
 <ion-header color="primary">
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Panel Administrativo</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only>
+            <ion-icon name="contact" end></ion-icon>
+        </button>
+        <button ion-button icon-only>
+            <ion-icon name="settings" end></ion-icon>
+        </button>
+        <button ion-button icon-only>
+            <ion-icon name="mail"></ion-icon>
+        </button>
+        <button ion-button icon-only>
+            <ion-icon name="notifications"></ion-icon>
+        </button>
+        
+      </ion-buttons>
+    
   </ion-navbar>
+  
 
 </ion-header>
 
 
 <ion-content padding>
 
-  <button ion-button>Agregar Usuario</button>
-  <button ion-button>Agregar Entrenador</button>
+  <ion-row>
+    <ion-col>
+      <h3>
+        Entrenamientos
+      </h3>
+    </ion-col>
+    <ion-col>
+      <ion-input placeholder="Buscar entrenamiento"></ion-input>
+    </ion-col>
+    <ion-col>
+        <ion-input placeholder="Programacion"></ion-input>
+    </ion-col>
+    <ion-col>
+        <ion-input placeholder="Teoría Base"></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+        <ion-item>
+            <ion-label>Objetivo</ion-label>
+            <ion-select>
+              <ion-option value="f">1</ion-option>
+              <ion-option value="m">2</ion-option>
+            </ion-select>
+          </ion-item>
+    </ion-col>
+    <ion-col>
+        <ion-item>
+            <ion-label>Mostrar todos</ion-label>
+            <ion-select>
+              <ion-option value="f">1</ion-option>
+              <ion-option value="m">2</ion-option>
+            </ion-select>
+          </ion-item>
+    </ion-col>
+    <ion-col>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+    </ion-col>
+    <ion-col>
+     
+        <ion-range [(ngModel)]="singleValue1" color="danger" pin="true"></ion-range>
+      
+    </ion-col>
+    <ion-col>
+        <ion-range [(ngModel)]="singleValue" color="danger" pin="true"></ion-range>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+        <ion-row>
+          <ion-col col-9>
+              <ion-card (click)="abrirEjercicio()">
+
+                  <ion-card-header>
+                    Nombre del entrenamiento
+                  </ion-card-header>
+                
+                  <ion-card-content>
+                    <ion-row>
+                      <ion-col>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                      </ion-col>
+                    </ion-row>
+      
+                    <ion-row>
+                        <ion-col>
+                           30 días
+                        </ion-col>
+                        <ion-col>
+                            Nombre de Teoría Base
+                         </ion-col>
+                      </ion-row>
+                  </ion-card-content>
+                
+                </ion-card>
+          </ion-col>
+          <ion-col col-3>
+            <ion-list no-lines>
+              <button ion-item>
+                  <ion-icon name="person"></ion-icon>
+              </button>
+              <button ion-item>
+                  <ion-icon name="settings"></ion-icon>
+              </button>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+    </ion-col>
+    <ion-col>
+        <ion-row>
+          <ion-col col-9>
+              <ion-card (click)="abrirEjercicio()">
+
+                  <ion-card-header>
+                    Nombre del entrenamiento
+                  </ion-card-header>
+                
+                  <ion-card-content>
+                    <ion-row>
+                      <ion-col>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                      </ion-col>
+                    </ion-row>
+      
+                    <ion-row>
+                        <ion-col>
+                           30 días
+                        </ion-col>
+                        <ion-col>
+                            Nombre de Teoría Base
+                         </ion-col>
+                      </ion-row>
+                  </ion-card-content>
+                
+                </ion-card>
+          </ion-col>
+          <ion-col col-3>
+            <ion-list no-lines>
+              <button ion-item>
+                  <ion-icon name="person"></ion-icon>
+              </button>
+              <button ion-item>
+                  <ion-icon name="settings"></ion-icon>
+              </button>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+    </ion-col>
+    <ion-col>
+        <ion-row>
+          <ion-col col-9>
+              <ion-card (click)="abrirEjercicio()">
+
+                  <ion-card-header>
+                    Nombre del entrenamiento
+                  </ion-card-header>
+                
+                  <ion-card-content>
+                    <ion-row>
+                      <ion-col>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                          <ion-icon name="star"></ion-icon>
+                      </ion-col>
+                    </ion-row>
+      
+                    <ion-row>
+                        <ion-col>
+                           30 días
+                        </ion-col>
+                        <ion-col>
+                            Nombre de Teoría Base
+                         </ion-col>
+                      </ion-row>
+                  </ion-card-content>
+                
+                </ion-card>
+          </ion-col>
+          <ion-col col-3>
+            <ion-list no-lines>
+              <button ion-item>
+                  <ion-icon name="person"></ion-icon>
+              </button>
+              <button ion-item>
+                  <ion-icon name="settings"></ion-icon>
+              </button>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+      <ion-col>
+          <ion-row>
+            <ion-col col-9>
+                <ion-card (click)="abrirEjercicio()">
+  
+                    <ion-card-header>
+                      Nombre del entrenamiento
+                    </ion-card-header>
+                  
+                    <ion-card-content>
+                      <ion-row>
+                        <ion-col>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                        </ion-col>
+                      </ion-row>
+        
+                      <ion-row>
+                          <ion-col>
+                             30 días
+                          </ion-col>
+                          <ion-col>
+                              Nombre de Teoría Base
+                           </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                  
+                  </ion-card>
+            </ion-col>
+            <ion-col col-3>
+              <ion-list no-lines>
+                <button ion-item>
+                    <ion-icon name="person"></ion-icon>
+                </button>
+                <button ion-item>
+                    <ion-icon name="settings"></ion-icon>
+                </button>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+      </ion-col>
+      <ion-col>
+          <ion-row>
+            <ion-col col-9>
+                <ion-card (click)="abrirEjercicio()">
+  
+                    <ion-card-header>
+                      Nombre del entrenamiento
+                    </ion-card-header>
+                  
+                    <ion-card-content>
+                      <ion-row>
+                        <ion-col>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                        </ion-col>
+                      </ion-row>
+        
+                      <ion-row>
+                          <ion-col>
+                             30 días
+                          </ion-col>
+                          <ion-col>
+                              Nombre de Teoría Base
+                           </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                  
+                  </ion-card>
+            </ion-col>
+            <ion-col col-3>
+              <ion-list no-lines>
+                <button ion-item>
+                    <ion-icon name="person"></ion-icon>
+                </button>
+                <button ion-item>
+                    <ion-icon name="settings"></ion-icon>
+                </button>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+      </ion-col>
+      <ion-col>
+          <ion-row>
+            <ion-col col-9>
+                <ion-card (click)="abrirEjercicio()">
+  
+                    <ion-card-header>
+                      Nombre del entrenamiento
+                    </ion-card-header>
+                  
+                    <ion-card-content>
+                      <ion-row>
+                        <ion-col>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                        </ion-col>
+                      </ion-row>
+        
+                      <ion-row>
+                          <ion-col>
+                             30 días
+                          </ion-col>
+                          <ion-col>
+                              Nombre de Teoría Base
+                           </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                  
+                  </ion-card>
+            </ion-col>
+            <ion-col col-3>
+              <ion-list no-lines>
+                <button ion-item>
+                    <ion-icon name="person"></ion-icon>
+                </button>
+                <button ion-item>
+                    <ion-icon name="settings"></ion-icon>
+                </button>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col>
+            <ion-row>
+              <ion-col col-9>
+                  <ion-card (click)="abrirEjercicio()">
+    
+                      <ion-card-header>
+                        Nombre del entrenamiento
+                      </ion-card-header>
+                    
+                      <ion-card-content>
+                        <ion-row>
+                          <ion-col>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                          </ion-col>
+                        </ion-row>
+          
+                        <ion-row>
+                            <ion-col>
+                               30 días
+                            </ion-col>
+                            <ion-col>
+                                Nombre de Teoría Base
+                             </ion-col>
+                          </ion-row>
+                      </ion-card-content>
+                    
+                    </ion-card>
+              </ion-col>
+              <ion-col col-3>
+                <ion-list no-lines>
+                  <button ion-item>
+                      <ion-icon name="person"></ion-icon>
+                  </button>
+                  <button ion-item>
+                      <ion-icon name="settings"></ion-icon>
+                  </button>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+        </ion-col>
+        <ion-col>
+            <ion-row>
+              <ion-col col-9>
+                  <ion-card (click)="abrirEjercicio()">
+    
+                      <ion-card-header>
+                        Nombre del entrenamiento
+                      </ion-card-header>
+                    
+                      <ion-card-content>
+                        <ion-row>
+                          <ion-col>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                          </ion-col>
+                        </ion-row>
+          
+                        <ion-row>
+                            <ion-col>
+                               30 días
+                            </ion-col>
+                            <ion-col>
+                                Nombre de Teoría Base
+                             </ion-col>
+                          </ion-row>
+                      </ion-card-content>
+                    
+                    </ion-card>
+              </ion-col>
+              <ion-col col-3>
+                <ion-list no-lines>
+                  <button ion-item>
+                      <ion-icon name="person"></ion-icon>
+                  </button>
+                  <button ion-item>
+                      <ion-icon name="settings"></ion-icon>
+                  </button>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+        </ion-col>
+        <ion-col>
+            <ion-row>
+              <ion-col col-9>
+                  <ion-card (click)="abrirEjercicio()">
+    
+                      <ion-card-header>
+                        Nombre del entrenamiento
+                      </ion-card-header>
+                    
+                      <ion-card-content>
+                        <ion-row>
+                          <ion-col>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                              <ion-icon name="star"></ion-icon>
+                          </ion-col>
+                        </ion-row>
+          
+                        <ion-row>
+                            <ion-col>
+                               30 días
+                            </ion-col>
+                            <ion-col>
+                                Nombre de Teoría Base
+                             </ion-col>
+                          </ion-row>
+                      </ion-card-content>
+                    
+                    </ion-card>
+              </ion-col>
+              <ion-col col-3>
+                <ion-list no-lines>
+                  <button ion-item>
+                      <ion-icon name="person"></ion-icon>
+                  </button>
+                  <button ion-item>
+                      <ion-icon name="settings"></ion-icon>
+                  </button>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+        </ion-col>
+      </ion-row>
   
 </ion-content>

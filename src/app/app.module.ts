@@ -26,6 +26,12 @@ import { ChatPage } from '../pages/chat/chat';
 import { AdminInicioPage } from '../pages/admin-inicio/admin-inicio';
 import { ParametrosPage } from '../pages/parametros/parametros';
 import { DetallesPage } from '../pages/detalles/detalles';
+import { DietaDetallePage } from '../pages/dieta-detalle/dieta-detalle';
+import { EjercicioComponent } from '../components/ejercicio/ejercicio';
+import { AdminEntrenamientosPage } from '../pages/admin-entrenamientos/admin-entrenamientos';
+import { EditarEntrenamientoPage } from '../pages/editar-entrenamiento/editar-entrenamiento';
+import { UsuariosPage } from '../pages/usuarios/usuarios';
+import { RegistroPage } from '../pages/registro/registro';
 
 @NgModule({
   declarations: [
@@ -44,7 +50,13 @@ import { DetallesPage } from '../pages/detalles/detalles';
     ChatPage,
     AdminInicioPage,
     ParametrosPage,
-    DetallesPage
+    DetallesPage,
+    DietaDetallePage,
+    EjercicioComponent,
+    AdminEntrenamientosPage,
+    EditarEntrenamientoPage,
+    UsuariosPage,
+    RegistroPage
   ],
   imports: [
     BrowserModule,
@@ -70,7 +82,13 @@ import { DetallesPage } from '../pages/detalles/detalles';
     ChatPage,
     AdminInicioPage,
     ParametrosPage,
-    DetallesPage
+    DetallesPage,
+    DietaDetallePage,
+    EjercicioComponent,
+    AdminEntrenamientosPage,
+    EditarEntrenamientoPage,
+    UsuariosPage,
+    RegistroPage
   ],
   providers: [
     StatusBar,
