@@ -1,0 +1,117 @@
+<!--
+  Generated template for the CrearEjerciciosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>CrearEjercicios</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="btn-superior">
+    <ion-row>
+      <ion-col>
+        <button ion-button (click)="cambiarPantalla('ejercicio')">
+          Ejercicio
+        </button>
+        <button ion-button (click)="cambiarPantalla('descanso')">
+            Descanso
+        </button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div *ngIf=" opt == 'ejercicio' ">
+    <div class="btn-nuevo" (click)="cambiarPantalla('nuevo')">
+      <button ion-button>
+        Nuevo
+      </button>
+    </div>
+
+    <ion-item>
+        <ion-label floating>Buscar Ejercicio</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+            <ion-item>
+                <ion-label floating>Grupo Muscular</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col>
+            <ion-item>
+                <ion-label floating>Tipo de Ejercicio</ion-label>
+                <ion-input type="text"></ion-input>
+              </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <div class="ejercicios">
+
+        <ion-list no-lines>
+          <button ion-item *ngFor="let item of ejercicios | async" (click)="registrarEjercicio(item)">
+            {{item.nombre}}
+          </button>
+        </ion-list>
+
+      </div>
+  </div>
+
+  <div *ngIf="  opt == 'descanso' ">
+     
+
+      
+
+      <ion-row>
+        <ion-col>
+            <ion-item>
+                <ion-label floating>Segundos</ion-label>
+                <ion-input type="number" [(ngModel)]="descanso"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col>
+            <div class="btn-superior">
+                <button ion-button (click)="agregarDescanso(descanso)">
+                  Confirmar
+                </button>
+              </div>
+        </ion-col>
+      </ion-row>
+  </div>
+
+  <div *ngIf=" opt == 'nuevo' ">
+     <ion-list>
+        <ion-item>
+            <ion-label floating>Nombre de Ejercicio</ion-label>
+            <ion-input type="text" [(ngModel)]="ejercicio.nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Grupo Muscular</ion-label>
+            <ion-input type="text" [(ngModel)]="ejercicio.grupo"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Tipo de Ejercicio</ion-label>
+            <ion-input type="text" [(ngModel)]="ejercicio.tipo"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Comentario</ion-label>
+            <ion-input type="text" [(ngModel)]="ejercicio.comentario"></ion-input>
+        </ion-item>
+        <ion-item>
+          <button ion-button (click)="agregarEjercicio(ejercicio)">
+            Registrar
+          </button>
+        </ion-item>
+     </ion-list>
+  </div>
+
+</ion-content>

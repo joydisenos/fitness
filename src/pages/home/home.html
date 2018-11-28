@@ -13,7 +13,7 @@
     
     <ion-card-content>
       <ion-card-title>
-        Nombre del Entrenamiento
+        Entrenamientos
       </ion-card-title>
      <ion-item>
       <p item-start>30 días</p>
@@ -30,7 +30,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngFor="let item of items | async" (click)="abrirEjercicios(item)">
+  <ion-card *ngFor="let item of items | async" (click)="abrirEjercicios(item.key)">
     <ion-item>
       <p item-start>{{item.nombre}}</p>
     <ion-icon item-end *ngIf="item.finalizado == true" name="md-checkmark-circle" item-end style="color:rgb(51, 255, 51)"></ion-icon>

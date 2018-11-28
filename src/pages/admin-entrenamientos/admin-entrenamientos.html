@@ -8,22 +8,6 @@
 
     <ion-navbar color="primary">
       <ion-title>Panel Administrativo</ion-title>
-      <ion-buttons end>
-          <button ion-button icon-only>
-              <ion-icon name="contact" end></ion-icon>
-          </button>
-          <button ion-button icon-only>
-              <ion-icon name="settings" end></ion-icon>
-          </button>
-          <button ion-button icon-only>
-              <ion-icon name="mail"></ion-icon>
-          </button>
-          <button ion-button icon-only>
-              <ion-icon name="notifications"></ion-icon>
-          </button>
-          
-        </ion-buttons>
-      
     </ion-navbar>
     
   
@@ -32,6 +16,7 @@
 
 <ion-content>
 
+  
 <ion-row>
   <ion-col></ion-col>
   <ion-col></ion-col>
@@ -48,7 +33,22 @@
 
 <ion-row>
   <ion-col>
-    <ion-input placeholer="Nombre del Entrenamiento"></ion-input>
+
+      <ion-row>
+        <ion-col col-9>
+            <ion-item>
+                <ion-input type="text" [(ngModel)]="semana" placeholder="Agregar"></ion-input>
+              </ion-item>
+        </ion-col>
+        <ion-col col-3>
+          <button ion-button (click)="agregarSemana(semana)" small>+</button>
+        </ion-col>
+      </ion-row>
+
+        <ion-item>
+            <ion-label floating>Nombre del Entrenamiento</ion-label>
+            <ion-input type="text" value=""></ion-input>
+          </ion-item>
 
     <ion-item>
         <ion-label>Objetivo del Entrenamiento</ion-label>
@@ -94,12 +94,12 @@
 
   </ion-col>
   <ion-col>
-      <ion-card (click)="abrirEditar()">
-        
+  
+      <ion-card (click)="abrirEditar(semana.key)" *ngFor="let semana of semanas | async">
           <ion-card-content>
             <ion-row>
               <ion-col>
-                1era Semana
+                {{semana.nombre}}
               </ion-col>
               <ion-col>
                 
@@ -115,7 +115,7 @@
             </ion-row>
 
             <ion-row>
-              <ion-col>
+              <ion-col>  
                   <ion-icon name="checkmark-circle"></ion-icon>
                   <ion-icon name="checkmark-circle"></ion-icon>
                   <ion-icon name="checkmark-circle"></ion-icon>
@@ -129,180 +129,7 @@
         
         </ion-card>
 
-        <ion-card (click)="abrirEditar()">
-        
-            <ion-card-content>
-              <ion-row>
-                <ion-col>
-                  1era Semana
-                </ion-col>
-                <ion-col>
-                  
-                        <ion-range [(ngModel)]="singleValue" color="danger" pin="true"></ion-range>
-                   
-                </ion-col>
-                <ion-col>
-                  10
-                </ion-col>
-                <ion-col>
-                  <ion-input type="number"></ion-input>
-                </ion-col>
-              </ion-row>
-  
-              <ion-row>
-                <ion-col>
-                    <ion-icon name="checkmark-circle"></ion-icon>
-                    <ion-icon name="checkmark-circle"></ion-icon>
-                    <ion-icon name="checkmark-circle"></ion-icon>
-                    <ion-icon name="checkmark-circle"></ion-icon>
-                    <ion-icon name="checkmark-circle"></ion-icon>
-                    <ion-icon name="checkmark-circle"></ion-icon>
-                </ion-col>
-                
-              </ion-row>
-            </ion-card-content>
-          
-          </ion-card>
-
-          <ion-card (click)="abrirEditar()">
-        
-              <ion-card-content>
-                <ion-row>
-                  <ion-col>
-                    1era Semana
-                  </ion-col>
-                  <ion-col>
-                    
-                          <ion-range [(ngModel)]="singleValue" color="danger" pin="true"></ion-range>
-                     
-                  </ion-col>
-                  <ion-col>
-                    10
-                  </ion-col>
-                  <ion-col>
-                    <ion-input type="number"></ion-input>
-                  </ion-col>
-                </ion-row>
-    
-                <ion-row>
-                  <ion-col>
-                      <ion-icon name="checkmark-circle"></ion-icon>
-                      <ion-icon name="checkmark-circle"></ion-icon>
-                      <ion-icon name="checkmark-circle"></ion-icon>
-                      <ion-icon name="checkmark-circle"></ion-icon>
-                      <ion-icon name="checkmark-circle"></ion-icon>
-                      <ion-icon name="checkmark-circle"></ion-icon>
-                  </ion-col>
-                  
-                </ion-row>
-              </ion-card-content>
-            
-            </ion-card>
-
-            <ion-card (click)="abrirEditar()">
-        
-                <ion-card-content>
-                  <ion-row>
-                    <ion-col>
-                      1era Semana
-                    </ion-col>
-                    <ion-col>
-                      
-                            <ion-range [(ngModel)]="singleValue" color="danger" pin="true"></ion-range>
-                       
-                    </ion-col>
-                    <ion-col>
-                      10
-                    </ion-col>
-                    <ion-col>
-                      <ion-input type="number"></ion-input>
-                    </ion-col>
-                  </ion-row>
-      
-                  <ion-row>
-                    <ion-col>
-                        <ion-icon name="checkmark-circle"></ion-icon>
-                        <ion-icon name="checkmark-circle"></ion-icon>
-                        <ion-icon name="checkmark-circle"></ion-icon>
-                        <ion-icon name="checkmark-circle"></ion-icon>
-                        <ion-icon name="checkmark-circle"></ion-icon>
-                        <ion-icon name="checkmark-circle"></ion-icon>
-                    </ion-col>
-                    
-                  </ion-row>
-                </ion-card-content>
-              
-              </ion-card>
-
-              <ion-card (click)="abrirEditar()">
-        
-                  <ion-card-content>
-                    <ion-row>
-                      <ion-col>
-                        1era Semana
-                      </ion-col>
-                      <ion-col>
-                        
-                              <ion-range [(ngModel)]="singleValue" color="danger" pin="true"></ion-range>
-                         
-                      </ion-col>
-                      <ion-col>
-                        10
-                      </ion-col>
-                      <ion-col>
-                        <ion-input type="number"></ion-input>
-                      </ion-col>
-                    </ion-row>
-        
-                    <ion-row>
-                      <ion-col>
-                          <ion-icon name="checkmark-circle"></ion-icon>
-                          <ion-icon name="checkmark-circle"></ion-icon>
-                          <ion-icon name="checkmark-circle"></ion-icon>
-                          <ion-icon name="checkmark-circle"></ion-icon>
-                          <ion-icon name="checkmark-circle"></ion-icon>
-                          <ion-icon name="checkmark-circle"></ion-icon>
-                      </ion-col>
-                      
-                    </ion-row>
-                  </ion-card-content>
-                
-                </ion-card>
-
-                <ion-card (click)="abrirEditar()">
-        
-                    <ion-card-content>
-                      <ion-row>
-                        <ion-col>
-                          1era Semana
-                        </ion-col>
-                        <ion-col>
-                          
-                                <ion-range [(ngModel)]="singleValue" color="danger" pin="true"></ion-range>
-                           
-                        </ion-col>
-                        <ion-col>
-                          10
-                        </ion-col>
-                        <ion-col>
-                          <ion-input type="number"></ion-input>
-                        </ion-col>
-                      </ion-row>
-          
-                      <ion-row>
-                        <ion-col>
-                            <ion-icon name="checkmark-circle"></ion-icon>
-                            <ion-icon name="checkmark-circle"></ion-icon>
-                            <ion-icon name="checkmark-circle"></ion-icon>
-                            <ion-icon name="checkmark-circle"></ion-icon>
-                            <ion-icon name="checkmark-circle"></ion-icon>
-                            <ion-icon name="checkmark-circle"></ion-icon>
-                        </ion-col>
-                        
-                      </ion-row>
-                    </ion-card-content>
-                  
-                  </ion-card>
+       
   </ion-col>
 </ion-row>
 

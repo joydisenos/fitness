@@ -1,0 +1,58 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Crear Entrenamiento</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+        <ion-label floating>Nombre del Entrenamiento</ion-label>
+        <ion-input type="text" [(ngModel)]="entrenamiento.nombre"></ion-input>
+      </ion-item>
+
+<ion-item>
+    <ion-label>Objetivo del Entrenamiento</ion-label>
+    <ion-select [(ngModel)]="entrenamiento.objetivo">
+      <ion-option value="Tonificar">Tonificar</ion-option>
+      <ion-option value="Endurecer">Endurecer</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+      <ion-label>Programa</ion-label>
+      <ion-select [(ngModel)]="entrenamiento.programa">
+        <ion-option value="Anaerobicos">Anaerobicos</ion-option>
+        <ion-option value="Aerobicos">Aerobicos</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Teoría a Calificar</ion-label>
+        <ion-input type="text" [(ngModel)]="entrenamiento.teoria"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>Nivel de Calentamiento</ion-label>
+          <ion-select [(ngModel)]="entrenamiento.calentamiento">
+              <ion-option value="Suave">Suave</ion-option>
+              <ion-option value="Medio">Medio</ion-option>
+              <ion-option value="Intenso">Intenso</ion-option>
+            </ion-select>
+        </ion-item>
+        
+        <ion-item>
+        <ion-input placeholder="Comentario" [(ngModel)]="entrenamiento.comentario"></ion-input>
+      </ion-item>
+        
+
+        <ion-item>
+          <button ion-button (click)="crearEntrenamiento()">
+            Agregar
+          </button>
+        </ion-item>
+
+</ion-content>

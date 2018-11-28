@@ -51,6 +51,7 @@ export class ChatPage {
 
       this.afDatabase.list('mensajes/'+ auth.uid)
                       .push(this.mensaje);
+      this.mensaje.mensaje = '';
 
     })
   }

@@ -10,6 +10,7 @@ import { Item } from '../../models/item';
 import { map } from 'rxjs/operators';
 import { AdminInicioPage } from '../admin-inicio/admin-inicio';
 import { DetallesPage } from '../detalles/detalles';
+import { SemanasPage } from '../semanas/semanas';
 
 @Component({
   selector: 'page-home',
@@ -22,7 +23,6 @@ export class HomePage {
   perfilData : Observable<Perfil>;
   itemsRef: AngularFireList<any>;
   items: Observable<Item[]>;
-
 
  
   constructor(
@@ -56,7 +56,7 @@ export class HomePage {
   }
 
   abrirEjercicios(item) {
-    this.navCtrl.push(DetallesPage , {item: item});
+    this.navCtrl.push(SemanasPage , {item:item});
   }
 
 }

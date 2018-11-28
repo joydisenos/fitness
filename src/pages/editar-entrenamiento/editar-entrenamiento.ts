@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { CrearEjerciciosPage } from '../crear-ejercicios/crear-ejercicios';
 
 /**
  * Generated class for the EditarEntrenamientoPage page.
@@ -15,11 +19,38 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EditarEntrenamientoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  params:any;
+  ejerciciosList: AngularFireList<any>;
+  ejercicios:Observable<any>;
+
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public afDatabase: AngularFireDatabase,
+              public modalCtrl: ModalController) {
+    this.params = navParams.data;
+    this.ejerciciosList = this.afDatabase
+    .list('actividades/'+ this.params.userKey + '/'+ this.params.actividadKey + '/semana/' + this.params.semanaKey + '/ejercicios');
+
+    this.ejercicios = this.ejerciciosList
+          .snapshotChanges()  
+          .pipe(
+                  map(ejercicios => 
+                    ejercicios.map(ejercicio => ({ 
+                      key: ejercicio.key, 
+                      ...ejercicio.payload.val() }))
+                  )
+              );
+
+             
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EditarEntrenamientoPage');
+    console.log(this.params);
+  }
+
+  crearEjercicio() {
+    const modal = this.modalCtrl.create(CrearEjerciciosPage , this.params);
+    modal.present();
   }
 
 }

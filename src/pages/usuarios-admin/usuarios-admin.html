@@ -1,0 +1,111 @@
+<!--
+  Generated template for the UsuariosAdminPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Usuarios</ion-title>
+      </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-row >
+      <ion-col col-4>
+          <ion-item>
+              <ion-label>Usuario</ion-label>
+              <ion-select [(ngModel)]="tipoUsuario">
+                <ion-option value="cliente">Clientes</ion-option>
+                <ion-option value="gimnasio">Gimnasios</ion-option>
+                <ion-option value="entrenador">Entrenadores</ion-option>
+              </ion-select>
+            </ion-item>
+      </ion-col>
+
+      <ion-col>
+
+        <div *ngIf=" tipoUsuario == 'cliente' ">
+          <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-input type="text" placeholder="Buscar Cliente"  [(ngModel)]="buscarclienteNombre"></ion-input>
+                </ion-item>
+            </ion-col>
+
+            <ion-col>
+                <ion-item>
+                    <ion-input type="text"  [(ngModel)]="buscarclienteObjetivo" placeholder="Buscar Objetivo"></ion-input>
+                </ion-item>
+            </ion-col>
+
+            <ion-col>
+                <ion-item>
+                    <ion-label>Activo / Inactivo</ion-label>
+                    <ion-select [(ngModel)]="buscarclienteEstatus">
+                      <ion-option value="">Todos</ion-option>
+                      <ion-option value="1">Activo</ion-option>
+                      <ion-option value="0">Inactivo</ion-option>
+                    </ion-select>
+                  </ion-item>
+            </ion-col>
+
+
+          </ion-row>
+
+          
+        </div>
+        <div *ngIf=" tipoUsuario == 'gimnasio' ">
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-input type="text"  [(ngModel)]="buscarGimnasio" placeholder="Buscar Gimnasio"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </div>
+        <div *ngIf=" tipoUsuario == 'entrenador' ">
+
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-input type="text"  [(ngModel)]="buscarEntrenador" placeholder="Buscar Entrenador"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+
+
+        </div>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col *ngFor="let user of users | async" col-4>
+            <ion-card>
+                <ion-card-content>
+                  <ion-row>
+                    <ion-col col-4 class="centrar"> 
+                        <img src="/assets/imgs/icon-user-default.png" alt="">
+                    </ion-col>
+                    <ion-col>
+                     <h3>
+                        {{user.nombre}} {{user.apellido}}
+                     </h3>
+                     <p>
+                       tipo: {{ user.tipo }}
+                     </p>
+                     <p>
+                       edad: {{ user.edad }}
+                     </p>
+                    </ion-col>
+                  </ion-row>
+                  
+                </ion-card-content>    
+              </ion-card>
+        </ion-col>
+      </ion-row>
+
+</ion-content>

@@ -41,3 +41,25 @@
       height: 100% !important;
     } 
   }
+
+.scroll{
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.userlist-admin{
+    display: inline-block !important;
+    text-align: center;
+    background: #fff;
+    margin: 0 10px;
+    padding: 5px;
+    img{
+        max-width: 30px;
+    }
+}
+.btn-nuevo{
+    text-align: center;
+}
+.btn-superior{
+    text-align: center;
+}

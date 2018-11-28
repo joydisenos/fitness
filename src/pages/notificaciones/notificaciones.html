@@ -1,0 +1,4 @@
+<ion-list>
+    <ion-list-header>Notificaciones</ion-list-header>
+    <button ion-item (click)="close()" *ngFor="let notificacion of notificaciones | async">{{notificacion.nombre}}</button>
+  </ion-list>

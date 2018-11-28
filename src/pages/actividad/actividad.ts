@@ -3,9 +3,11 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { Item } from '../../models/item';
 import { Ejercicio } from '../../models/ejercicio';
 import { HomePage } from '../home/home';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { LoginPage } from '../login/login';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 /**
  * Generated class for the ActividadPage page.
@@ -21,9 +23,14 @@ import { LoginPage } from '../login/login';
 })
 export class ActividadPage {
 
-  item = { } as Item;
-  ejercicios: Array<Ejercicio>;
+  item :any;
+  
   itemKey: string;
+  ejercicioKey:string;
+  itemsRef: AngularFireList<any>;
+  items: Observable<Item[]>;
+  ejercicioRef:AngularFireObject<any>;
+  ejercicios:Observable<any>;
 
   // var cronometro
 
@@ -49,11 +56,31 @@ export class ActividadPage {
     public afAuth: AngularFireAuth,
     public navCtrl: NavController, 
     public navParams: NavParams) {
-      this.item = navParams.get('item');
-      this.ejercicios = this.item.ejercicios;
-      this.itemKey = this.item.key;
+      this.item = navParams.data;
+
+      this.itemKey = this.item.itemKey;
+      this.ejercicioKey = this.item.ejercicioKey;
+
       console.log(this.itemKey);
       this.start();
+
+      this.afAuth.authState.subscribe(data => {
+        if(data && data.email && data.uid)
+        {
+
+          this.itemsRef = this.afDatabase.list('actividades/' + data.uid + '/' + this.ejercicioKey + '/semana/'+ this.itemKey);
+          this.items = this.itemsRef.snapshotChanges().pipe(
+            map(items => 
+              items.map(item => ({ 
+                key: item.key, 
+                ...item.payload.val() }))
+            )
+          );
+        }
+        else{
+          this.navCtrl.setRoot(LoginPage);
+        }
+      });
 
 
   }
@@ -82,7 +109,7 @@ export class ActividadPage {
     this.afAuth.authState.subscribe(data => {
       if(data && data.email && data.uid)
       {
-        this.afDatabase.object('actividades/'+ data.uid + '/' + this.itemKey)
+        this.afDatabase.object('actividades/' + data.uid + '/' + this.ejercicioKey + '/semana/'+ this.itemKey)
                         .update({
                           finalizado: true,
                           tiempo: this._minutos + ':' + this._segundos

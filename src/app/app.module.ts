@@ -32,6 +32,15 @@ import { AdminEntrenamientosPage } from '../pages/admin-entrenamientos/admin-ent
 import { EditarEntrenamientoPage } from '../pages/editar-entrenamiento/editar-entrenamiento';
 import { UsuariosPage } from '../pages/usuarios/usuarios';
 import { RegistroPage } from '../pages/registro/registro';
+import { CrearEjerciciosPage } from '../pages/crear-ejercicios/crear-ejercicios';
+import { SortablejsModule } from 'angular-sortablejs';
+import { ChatAdminPage } from '../pages/chat-admin/chat-admin';
+import { UsuariosAdminPage } from '../pages/usuarios-admin/usuarios-admin';
+import { ConfigAdminPage } from '../pages/config-admin/config-admin';
+import { NotificacionesPage } from '../pages/notificaciones/notificaciones';
+import { Data } from '../providers/data/data';
+import { SemanasPage } from '../pages/semanas/semanas';
+import { CrearEntrenamientoPage } from '../pages/crear-entrenamiento/crear-entrenamiento';
 
 @NgModule({
   declarations: [
@@ -56,14 +65,22 @@ import { RegistroPage } from '../pages/registro/registro';
     AdminEntrenamientosPage,
     EditarEntrenamientoPage,
     UsuariosPage,
-    RegistroPage
+    RegistroPage,
+    CrearEjerciciosPage,
+    ChatAdminPage,
+    UsuariosAdminPage,
+    ConfigAdminPage,
+    NotificacionesPage,
+    SemanasPage,
+    CrearEntrenamientoPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    SortablejsModule.forRoot({ animation: 150 })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -88,13 +105,21 @@ import { RegistroPage } from '../pages/registro/registro';
     AdminEntrenamientosPage,
     EditarEntrenamientoPage,
     UsuariosPage,
-    RegistroPage
+    RegistroPage,
+    CrearEjerciciosPage,
+    ChatAdminPage,
+    UsuariosAdminPage,
+    ConfigAdminPage,
+    NotificacionesPage,
+    SemanasPage,
+    CrearEntrenamientoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthService
+    AuthService,
+    Data
   ]
 })
 export class AppModule {}

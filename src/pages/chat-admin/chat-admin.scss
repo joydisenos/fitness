@@ -1,0 +1,10 @@
+page-chat-admin {
+    .perfil-img{
+        width: 30px;
+    }
+
+    .mensajes , .users{
+        overflow: auto;
+        height: 75vh;
+    }
+}

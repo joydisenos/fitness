@@ -50,7 +50,7 @@
 
       </ion-slide>
 
-      <ion-slide *ngFor="let ejercicio of ejercicios">
+      <ion-slide *ngFor="let ejercicio of items | async">
           <ion-card>
               
               <ion-card-content>

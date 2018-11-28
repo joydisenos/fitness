@@ -1,4 +1,5 @@
 import { Ejercicio } from "./ejercicio";
+import { Semana } from "./semana";
 
 export interface Item {
     key?: string;
@@ -7,4 +8,5 @@ export interface Item {
     tiempo: string;
     observaciones: string;
     ejercicios: Array<Ejercicio>;
+    semana:Array<Semana>;
 }
